@@ -54,121 +54,119 @@ class LoginPage extends StatelessWidget {
                       color: Colors.white, // White color
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  // Add Card
-                  Align(
-                    alignment: Alignment.bottomCenter, // Align to the bottom
-                    child: Card(
-                      elevation: 5,
-                      margin: EdgeInsets.zero,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15),
-                        ),
-                      ),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            // Heading
-                            const Text(
-                              'Welcome Back',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            // Subheading
-                            const Text(
-                              'sign in to your account',
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            // Email input field
-                            TextFormField(
-                              decoration: const InputDecoration(
-                                labelText: 'Email',
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            // Password input field
-                            TextFormField(
-                              obscureText: true,
-                              decoration: const InputDecoration(
-                                labelText: 'Password',
-                                border: OutlineInputBorder(),
-                              ),
-                            ),
-                            const SizedBox(height: 10),
-                            // Forgot password line
-                            GestureDetector(
-                              onTap: () {
-                                // Add your forgot password functionality here
-                              },
-                              child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Text(
-                                  'Forgot Password?',
-                                  style: TextStyle(
-                                    color: Colors.red[400],
-                                  ),
-                                ),
-                              ),
-                            ),
-
-                            const SizedBox(height: 10),
-                            // Login button
-                            Container(
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  // Add your login functionality here
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      const Color.fromARGB(255, 51, 58, 199),
-                                ),
-                                child: const Text(
-                                  'Login',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-                            ),
-
-                            const SizedBox(height: 200),
-                            // Register line
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          RegisterPage()), // Navigate to Register.dart
-                                );
-                              },
-                              child: const Text(
-                                'Don\'t have an account? Register',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-
-                            const SizedBox(height: 10),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
+              ),
+            ),
+          ),
+          // Login card
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: FractionallySizedBox(
+              heightFactor: 0.7, // 60% of the screen's height
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Heading
+                      const Text(
+                        'Welcome Back',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      // Subheading
+                      const Text(
+                        'sign in to your account',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      // Email input field
+                      TextFormField(
+                        decoration: const InputDecoration(
+                          labelText: 'Email',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      // Password input field
+                      TextFormField(
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          labelText: 'Password',
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      // Forgot password line
+                      GestureDetector(
+                        onTap: () {
+                          // Add your forgot password functionality here
+                        },
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                              color: Colors.red[400],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      // Login button
+                      Container(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // Add your login functionality here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                                const Color.fromARGB(255, 51, 58, 199),
+                          ),
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      const Spacer(), // This will push the registration line to the bottom
+                      // Register line
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    RegisterPage()), // Navigate to Register.dart
+                          );
+                        },
+                        child: const Text(
+                          'Don\'t have an account? Register',
+                          style: TextStyle(
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 0),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
