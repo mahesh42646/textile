@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:textile/screens/home.dart'; // Adjust the import path
+import 'package:textile/auth/login.dart'; // Import the login page
 
 void main() {
   runApp(MyApp());
@@ -29,10 +29,10 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Navigate to HomeScreen after 1 second
+    // Navigate to LoginPage after 1 second
     Timer(Duration(seconds: 1), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => LoginPage()),
       );
     });
   }
@@ -42,11 +42,13 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Image.asset(
-            'assets/images/bgimg.jpeg'), // Replace 'splash_image.png' with your actual image asset path
+        child: Transform.scale(
+          scale: 1.06, // Adjust the scale factor as needed for zoom effect
+          child: Image.asset(
+            'assets/images/bgimg.jpeg',
+          ),
+        ),
       ),
     );
   }
-
-  HomeScreen() {}
 }
